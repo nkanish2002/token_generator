@@ -3,6 +3,12 @@
 Token Generator is a Golang based unique string generator which makes 
 use of the "math/rand" package.
 
+## Installation
+
+```sh
+go get github.com/nkanish2002/token_generator
+```
+
 ## Usage
 
 ```go
@@ -23,4 +29,8 @@ func main() {
 }
 ```
 
+## Note
 
+This is my first go library, I do not guarentee any performance benchmarks or bugs.
+
+For more complete documentation follow https://godoc.org/github.com/nkanish2002/token_generator
