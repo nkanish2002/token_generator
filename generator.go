@@ -10,37 +10,37 @@ import (
 /*
 Main Generator structure
 	N		Number of generated strings to be cached
-	Cachelength	Number of characters in the string
+	CacheLength	Number of characters in the string
 	cache		Array of generated strings
 */
 type Generator struct {
 	N           int
-	Cachelength int
+	CacheLength int
 	cache       []string
 }
 
 /*
 Initializer for the token generator. To initialize with custom settings set:-
 	N		Any positive integer value (default 1000)
-	Cachelength	Any positive integer value (default 200)
+	CacheLength	Any positive integer value (default 200)
 */
 func (g *Generator) New() {
 	if g.N == 0 {
 		g.N = 1000
 	}
-	if g.Cachelength == 0 {
-		g.Cachelength = 200
+	if g.CacheLength == 0 {
+		g.CacheLength = 200
 	}
 	g.cache = make([]string, g.N)
 	rand.Seed(time.Now().Unix())
 	for i := 0; i < g.N; i++ {
-		g.cache[i] = RandomString(g.Cachelength)
+		g.cache[i] = RandomString(g.CacheLength)
 	}
 }
 
 // Token Generator function
 func (g Generator) GetToken(size int) string {
 	i := rand.Intn(g.N)
-	start := rand.Intn(g.Cachelength - size - 1)
+	start := rand.Intn(g.CacheLength - size - 1)
 	return g.cache[i][start : start+size]
 }
