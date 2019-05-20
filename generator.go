@@ -32,7 +32,7 @@ func (g *Generator) New() {
 		g.CacheLength = 200
 	}
 	g.cache = make([]string, g.N)
-	rand.Seed(time.Now().Unix())
+	rand.Seed(time.Now().UnixNano())
 	for i := 0; i < g.N; i++ {
 		g.cache[i] = RandomString(g.CacheLength)
 	}
